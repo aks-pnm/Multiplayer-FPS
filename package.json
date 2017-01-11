@@ -1,0 +1,30 @@
+{
+  "name": "module-2-group-project-404-page-not-found",
+  "version": "1.0.0",
+  "description": "module 2 group project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umn-5117-f16/module-2-group-project-404-page-not-found.git"
+  },
+  "author": "Aanjaneya Shukla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umn-5117-f16/module-2-group-project-404-page-not-found/issues"
+  },
+  "homepage": "https://github.com/umn-5117-f16/module-2-group-project-404-page-not-found#readme",
+  "dependencies": {
+    "async": "^2.1.2",
+    "body-parser": "^1.15.2",
+    "cookieparser": "^0.1.0",
+    "ejs": "^2.5.2",
+    "express": "3.0.0rc4",
+    "mongoose": "^4.6.5",
+    "request": "^2.75.0",
+    "socket.io": "^1.5.1"
+  }
+}

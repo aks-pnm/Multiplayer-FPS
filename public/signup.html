@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<style type="text/css">
+form {
+             height:400px;
+             width:400px;
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             margin: -200px 0 0 -200px;
+}
+</style>
+<script>
+$(document).ready(function () {
+$("#signup").click(function(){
+         var usern = document.getElementById("username").value;
+         var pwd = document.getElementById("password").value;
+         var names = document.getElementById("names").value;
+         var payload = {"username":usern,"password":pwd,"personName":names};
+        $.ajax({url: '/signup',
+         type: 'POST',
+         dataType: "json",
+         data: payload,
+         ContentType: 'application/json',
+         success: function(response) {
+              if(response.errormessage)
+                alert(response.errormessage);
+              window.location = response.redirect;
+         }
+        });
+       return false;
+    });
+});
+</script>
+<body>
+<div class="container" >
+<div id="navbar-frame">
+<nav class = "navbar navbar-inverse" role = "navigation">
+<div class = "navbar-header">
+      <a class = "navbar-brand">Tank Shootout</a>
+</div>
+<div>
+      <ul class = "nav navbar-nav">
+         <li class = "active"><a href = "/game">Game</a></li>
+         <li><a href = "spectator">Spectator</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+        <li><a href="/"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+      </ul>
+</div>
+</nav>
+</div>
+<form class = "form-horizontal" role = "form">
+   <div class = "form-group">
+      <label for = "username" class = "col-sm-2 control-label">User Name</label>
+      <div class = "col-sm-10">
+         <input type = "text" class = "form-control" id = "username" placeholder = "Enter User Name" required>
+      </div>
+   </div>
+
+   <div class = "form-group">
+      <label for = "name" class = "col-sm-2 control-label">Name</label>
+      <div class = "col-sm-10">
+         <input type = "text" class = "form-control" id = "names" placeholder = "Enter Name" required>
+      </div>
+   </div>
+
+    <div class = "form-group">
+      <label for = "email" class = "col-sm-2 control-label">Password</label>
+      <div class = "col-sm-10">
+         <input type = "password" class = "form-control" id = "password" placeholder = "Enter Password" required>
+      </div>
+   </div>
+
+   <div class = "form-group">
+      <div class = "col-sm-offset-2 col-sm-10">
+         <button type = "submit" id = "signup" class = "btn btn-default">Sign Up</button>
+      </div>
+   </div>
+
+</form>
+</div>
+</body>
+</html>

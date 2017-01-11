@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.5.1/socket.io.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container" >
+    <div id="navbar-frame">
+    <nav class = "navbar navbar-inverse" role = "navigation">
+    <div class = "navbar-header">
+          <a class = "navbar-brand">Strike</a>
+    </div>
+    <div>
+          <ul class = "nav navbar-nav">
+             <li class = "active"><a href = "/game">Game</a></li>
+             <li><a href = "#">Spectator</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+          </ul>
+    </div>
+    </nav>
+    </div>
+    <canvas id="canv" width="650" height="500"></canvas>
+<script> 
+  const maxHeight = 500;
+  const maxWidth = 650;
+  const offset = 9;
+
+ var canv = document.getElementById("canv").getContext("2d");
+    console.log("Initializing canvas");
+    var connection = io();
+    connection.on('update',function(serv) {
+        
+      canv.clearRect(0,0,maxWidth,maxHeight);
+      //console.log(serv.bullets);
+      for(var i in serv.bullets) {
+        var bullet = serv.bullets[i];
+          canv.fillText("||", bullet.x, bullet.y);
+      }
+
+      for (var i in serv.players){
+          var player= serv.players[i];
+          var image = new Image();
+          image.src = "Btank.jpg";           
+          
+          canv.drawImage(image,player.x - offset ,player.y- 30 );
+      }
+    });
+</script>
+    </div>
+</body>
+</html>
