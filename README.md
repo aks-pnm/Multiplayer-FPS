@@ -125,23 +125,6 @@ ports. These are also the ports that mLab uses to let you connect. We have a
 server outside of UMN that listens on ports that are not blocked and will
 forward your traffic on to mLab.
 
-## Submission ##
-- Your code should be pushed up to your repo on github
-- Fill this `README.md` out with your team name, team members' emails, and
-  Heroku url for your demo. Additionally, complete the argument sections at the
-  top of the file.
-- Create a file called `API.md` that documents your api endpoints and how to
-  use them. These should include a valid `curl` command and a description of its
-  expected output.
-
-## Grading ##
-You will be graded on the __ambition__ and __execution__ of the project. At
-the top of this `README.md` you have the opportunity to argue why your
-submission was ambitious and well executed. In order for us to grade it, you
-must have it hosted on Heroku. To earn an "A" grade, a project must be
-technically ambitious, well-executed, and polished. To earn a passing grade, a
-project must minimally fulfill the three requirements listed in the description.
-
 
 Sources:
 www.w3schools.org
