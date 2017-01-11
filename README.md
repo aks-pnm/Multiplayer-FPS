@@ -1,8 +1,3 @@
-# Module 2 group project #
-
-Submitted by: 
-![](page_404.jpg) 
-
 Team members:
 
 - shukl031@umn.edu 
